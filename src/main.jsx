@@ -6,8 +6,7 @@ import './styles.css'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
     <React.StrictMode>
-        <CountApp>
-
+        <CountApp value={0}>
         </CountApp>
         {/*<FirstComponent title='va la prop' subtitle='subtitle' numberprop={4}></FirstComponent>*/}
     </React.StrictMode>,

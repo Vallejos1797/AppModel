@@ -1,50 +1,52 @@
+import { useState } from 'react';
 import PropTypes from 'prop-types';
 
-
-const handleClickOneAttribute = (event) => {
-    console.log('es un botón presionado', event);
-};
-
-const handleClickOneMoreAttribute = (event, arg) => {
-    console.log('es un botón presionado', event);
-    console.log('con arg', arg);
-};
-
-const Button = ({ numberAttributes }) => {
-    const handleButtonClick = (event) => {
-        if (numberAttributes > 1) {
-            handleClickOneMoreAttribute(event, 'otros');
-        } else {
-            handleClickOneAttribute(event);
-        }
-    };
-
+const Button = ({ numberAttributes, onClick }) => {
     return (
-        <button onClick={handleButtonClick}>
+        <button onClick={onClick}>
             Soy un botón con {numberAttributes} atributo
         </button>
     );
 };
+
 Button.propTypes = {
     numberAttributes: PropTypes.number.isRequired,
+    onClick: PropTypes.func.isRequired,
 };
 
-function CountApp() {
+function CountApp({ value }) {
+    const [contador, setContador] = useState(value);
+
+    const increaseCounter = () => {
+        setContador(contador + 1);
+    };
+
     return (
         <>
             <h1>Contador</h1>
+            <p>Value : {contador}</p>
+            <Button
+                numberAttributes={1}
+                onClick={() => {
+                    // Lógica del primer botón (si es necesaria)
+                }}
+            />
 
-            <Button numberAttributes={1}>
+            <br />
 
-            </Button>
-            <br/>
-            <Button  numberAttributes={2}>
-
-            </Button>
+            <h2>Aumentar contador.... ↓</h2>
+            <Button
+                numberAttributes={2}
+                onClick={() => {
+                    increaseCounter(); // Incrementa el contador solo para el segundo botón
+                }}
+            />
         </>
-
-
-    )
+    );
 }
 
-export default CountApp
+CountApp.propTypes = {
+    value: PropTypes.number,
+};
+
+export default CountApp;
