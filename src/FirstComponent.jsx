@@ -32,9 +32,10 @@ function FirstComponent({title, subtitle, numberprop}) {
     )
 }
 
-FirstComponent.PropTypes = {
+FirstComponent.propTypes  = {
     title: PropTypes.string.isRequired,
-    subtitle: PropTypes.string,
+    subtitle: PropTypes.string.isRequired,
+    numberprop:PropTypes.number.isRequired,
 }
 
 
