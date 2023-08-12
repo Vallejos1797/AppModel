@@ -1,37 +1,22 @@
 import {useEffect, useState} from "react";
+import UserList from "./UserList.jsx";
 
 export const UserApp = () => {
 
-    const [users, setUsers] = useState([])
+    const [endPoint, setEndPoint] = useState('users')
 
-    const fetchUsers = async () => {
-        try {
-            const reponse = await fetch('https://jsonplaceholder.typicode.com/users')
-            const data = await reponse.json()
-            setUsers(data)
-            console.log('data', data)
-        } catch (err) {
-            console.log('erro')
-        }
-    }
-    //
-    // useEffect(() => {
-    //     fetchUsers()
-    // }, [])
+
 
     const handleFetch = () => {
-        fetchUsers()
+        setEndPoint('comments')
     }
 
     return (
         <>
             <h2>Lista de Usuarios:</h2>
-            <ul>
-                {users.map(user =>
-                    <li key={user.id}>
-                        Usuario: {user.name} - {user.name}
-                    </li>)}
-            </ul>
+            <UserList endPonit={endPoint}>
+
+            </UserList>
             <button onClick={handleFetch}>
                 Ver usuarios
             </button>
