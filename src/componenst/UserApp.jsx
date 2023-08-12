@@ -7,17 +7,21 @@ export const UserApp = () => {
     const fetchUsers = async () => {
         try {
             const reponse = await fetch('https://jsonplaceholder.typicode.com/users')
-            const data = await  reponse.json()
+            const data = await reponse.json()
             setUsers(data)
             console.log('data', data)
         } catch (err) {
             console.log('erro')
         }
     }
+    //
+    // useEffect(() => {
+    //     fetchUsers()
+    // }, [])
 
-    useEffect(() => {
+    const handleFetch = () => {
         fetchUsers()
-    }, [])
+    }
 
     return (
         <>
@@ -25,9 +29,12 @@ export const UserApp = () => {
             <ul>
                 {users.map(user =>
                     <li key={user.id}>
-                        {user.name}
+                        Usuario: {user.name} - {user.name}
                     </li>)}
             </ul>
+            <button onClick={handleFetch}>
+                Ver usuarios
+            </button>
         </>
     )
 }
