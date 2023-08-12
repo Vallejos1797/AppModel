@@ -1,37 +1,26 @@
 import {useState, useEffect} from "react";
+import {useFetchData} from "../hooks/useFetchData.js";
 
-export const UserList = ({endPonit}) => {
-
-    const [data, setData] = useState([])
-
-    const fetchData = async () => {
-        try {
-            const reponse = await fetch(`https://jsonplaceholder.typicode.com/${endPonit}`)
-            const data = await reponse.json()
-            setData(data)
-            console.log('data', data)
-        } catch (err) {
-            console.log('erro')
-        }
-    }
-
-
-    useEffect(() => {
-        fetchData()
-    }, [endPonit])
+export const UserList = ({endPoint, change}) => {
+    console.log('endPonit', endPoint)
+    const {data, isLoading} = useFetchData({endPoint: endPoint})
 
     return (
         <>
             <ul>
-                {endPonit === 'users' ?
-                    data.map(user =>
-                        <li key={user.id}>
-                            Usuario: {user.name} - {user.name}
-                        </li>) :
-                    data.map(user =>
-                        <li key={user.id}>
-                            Usuario: {user.name} - {user.body}
-                        </li>)}
+                {isLoading ?
+                    <p>Cargando...</p>
+                           :
+                    change ?
+                        data.map(user =>
+                            <li key={user.id}>
+                                Usuario: {user.name} - {user.name}
+                            </li>)
+                           :
+                        data.map(user =>
+                            <li key={user.id}>
+                                Usuario: {user.name} - {user.body}
+                            </li>)}
             </ul>
         </>
     )
