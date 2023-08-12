@@ -17,12 +17,5 @@ ReactDOM.createRoot(document.getElementById('root')).render(
         {/*<h1>useEffect</h1>*/}
         {/*<UserApp></UserApp>*/}
         <HooksApp></HooksApp>
-        <button className="btn btn-primary">Botón Primario</button>
-        <button className="btn btn-secondary">Botón Secundario</button>
-        <button className="btn btn-success">Botón de Éxito</button>
-        <button className="btn btn-danger">Botón de Peligro</button>
-        <button className="btn btn-warning">Botón de Advertencia</button>
-        <button className="btn btn-info">Botón de Información</button>
-
     </React.StrictMode>,
 )

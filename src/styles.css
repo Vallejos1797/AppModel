@@ -1,7 +1,14 @@
-body,html{
+body, html {
     background: black;
     color: white;
 }
-.backgroundRed{
+
+.backgroundRed {
     background: red;
+}
+
+#root {
+    background: black;
+    color: white;
+
 }
