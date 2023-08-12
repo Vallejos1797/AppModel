@@ -8,9 +8,8 @@ export const AddItem = ({addTask}) => {
     const onSubmitForm = (event) => {
 
         event.preventDefault()
-        console.log('subit form', event)
-        console.log('Value ', inputValue)
-        addTask(tasks => [...tasks, {name: inputValue, view: true}])
+
+        addTask(inputValue)
 
     }
     return (

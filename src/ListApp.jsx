@@ -28,6 +28,13 @@ export const ListApp = () => {
         setArray([...array, {name: "Nuevo", view: false},])
     }
 
+    const onAddTask = (val) => {
+        console.log(val)
+        if (val < 1) return
+        setArray([...array, {name: val, view: false},])
+
+    }
+
     return (
         <>
             <h1>
@@ -41,7 +48,7 @@ export const ListApp = () => {
                 addTask()
             }}> Agregar Tema
             </button>
-            <AddItem addTask={setArray}> </AddItem>
+            <AddItem addTask={onAddTask}> </AddItem>
 
         </>
 
