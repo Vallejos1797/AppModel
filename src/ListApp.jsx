@@ -1,7 +1,8 @@
 import {useState} from "react";
+import AddItem from "./componenst/AddItem.jsx";
 
 const Item = ({name, view}) => {
-    return (<li >
+    return (<li>
         {name} - {view ? '👌' : '🤷‍'} - {view && '✔'}
 
     </li>)
@@ -40,6 +41,7 @@ export const ListApp = () => {
                 addTask()
             }}> Agregar Tema
             </button>
+            <AddItem addTask={setArray}> </AddItem>
 
         </>
 
