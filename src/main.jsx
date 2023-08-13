@@ -10,6 +10,7 @@ import 'bootstrap/dist/css/bootstrap.min.css'; // Importa los estilos de Bootstr
 import 'bootstrap'; // Importa los scripts de Bootstrap
 import {FormComponent} from "./componenst/FormComponent.jsx";
 import {UsersComponent} from "./componenst/UsersComponent.jsx";
+import {HeavyCalculates} from "./componenst/heavyCalculates.jsx";
 
 ReactDOM.createRoot(document.getElementById('root')).render(
     <React.StrictMode>
@@ -19,8 +20,10 @@ ReactDOM.createRoot(document.getElementById('root')).render(
         {/*<h1>useEffect</h1>*/}
         {/*<UserApp></UserApp>*/}
         {/*<HooksApp></HooksApp>*/}
-        <FormComponent> </FormComponent>
+        {/*<FormComponent> </FormComponent>*/}
         {/*<UsersComponent>*/}
         {/*</UsersComponent>*/}
+        <HeavyCalculates></HeavyCalculates>
+
     </React.StrictMode>,
 )
